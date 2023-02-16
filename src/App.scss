@@ -1,0 +1,24 @@
+.App {
+  text-align: left;
+  max-width: 500px;
+  margin: 0 auto;
+  margin-top: 20px;
+  &-input {
+    width: 100%;
+    padding: 8px 10px;
+    outline: none;
+    border: 1px solid gray;
+    border-radius: 4px;
+    font-size: 20px;
+    letter-spacing: 1px;
+    line-height: 30px;
+    color: gray;
+  }
+  ul {
+    li {
+      font-size: 25px;
+      font-weight: 600;
+      list-style-type: decimal;
+    }
+  }
+}
