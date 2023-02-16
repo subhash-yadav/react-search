@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.scss";
+import Table from "./components/Table";
 
 function App() {
   const [user, setUser] = useState([]);
@@ -18,14 +19,16 @@ console.log(querry,"Querry")
   useEffect(() => {
     getUser();
   }, []);
+
+ const key = ["name", "username", "email"];
+ 
+  const search = (data) =>{
+    return data.filter((item)=> key.some(key=>item[key].toLowerCase().includes(querry)))
+  }
   return (
     <div className="App">
       <input className="App-input" type="text" placeholder="Search anyThing" onChange={userQuerry} />
-      <ul>
-        {user.filter((users)=>users.name.toLowerCase().includes(querry)).map((user) => {
-          return <li key={user.id}>{user.name}</li>;
-        })}
-      </ul>
+      <Table data={search(user)}/>
     </div>
   );
 }
